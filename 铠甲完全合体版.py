@@ -6,6 +6,7 @@ import numpy as np
 import joblib
 import matplotlib.pyplot as plt
 import matplotlib
+from matplotlib import font_manager
 
 # 解决中文显示问题
 # matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
@@ -82,13 +83,16 @@ if st.button("计算风险值"):
         st.subheader("生存曲线")
         survival_curve = cox_model.predict_survival_function(input_df)
 
+        font_path = "./fonts/SimHei.ttf"  # 替换为实际路径
+        my_font = font_manager.FontProperties(fname=font_path)
+        
         # 使用 matplotlib 绘制曲线
         plt.figure(figsize=(6, 4))
         for i, curve in enumerate(survival_curve.T.values):
             plt.step(survival_curve.index, curve, where="post", label=f"曲线 {i + 1}")
-        plt.title("预测的生存曲线")
-        plt.xlabel("时间")
-        plt.ylabel("生存概率")
+        plt.title("预测的生存曲线", fontproperties=my_font)
+        plt.xlabel("时间", fontproperties=my_font)
+        plt.ylabel("生存概率", fontproperties=my_font)
         plt.grid(True)
         plt.legend(loc="best")
         st.pyplot(plt)
