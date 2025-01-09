@@ -20,10 +20,10 @@ model_choice = st.sidebar.selectbox("选择要使用的模型", ["临床风险�
 
 # 加载模型
 if model_choice == "临床风险模型":
-    model_file_path = r"C:\Users\25845\Desktop\模型应用\crs_model.pkl"
+    model_file_path = "crs_model.pkl"
     features = ['淋巴细胞比例', '血小板分布宽度', '球蛋白', '氯', '糖类抗原.242', 'grade', 'T', 'N', 'M']
 else:
-    model_file_path = r"C:\Users\25845\Desktop\模型应用\cmb_model.pkl"
+    model_file_path = "cmb_model.pkl"
     features = ['crs', 'prs']
 
 cox_model = joblib.load(model_file_path)
