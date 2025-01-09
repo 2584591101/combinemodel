@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 # 解决中文显示问题
-matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
+# matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文字体
 matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号问题
 
 # 标题
